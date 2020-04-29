@@ -1,32 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app style="background: #f9f9f9">
+    <router-view />
+  </v-app>
 </template>
 
+<script>
+import { loadMessages } from "devextreme/localization";
+import HelloWorld from "./components/HelloWorld";
+
+export default {
+  name: "App",
+  data: () => ({
+    //
+  }),
+  created() {
+    loadMessages({
+      en: {
+        "dxDataGrid-filterRowOperationEquals": "Igual",
+        "dxDataGrid-filterRowOperationNotEquals": "Diferente",
+        "dxDataGrid-filterRowOperationLess": "Menor que",
+        "dxDataGrid-filterRowOperationLessOrEquals": "Menor ou igual a",
+        "dxDataGrid-filterRowOperationGreater": "Maior que",
+        "dxDataGrid-filterRowOperationGreaterOrEquals": "Maior ou igual a",
+        "dxDataGrid-filterRowOperationStartsWith": "Começa com",
+        "dxDataGrid-filterRowOperationContains": "Contém",
+        "dxDataGrid-filterRowOperationNotContains": "Não contém",
+        "dxDataGrid-filterRowOperationEndsWith": "Termina com",
+        "dxDataGrid-filterRowOperationBetween": "Entre",
+        "dxDataGrid-filterRowOperationBetweenStartText": "Início",
+        "dxDataGrid-filterRowOperationBetweenEndText": "Fim",
+        "dxDataGrid-applyFilterText": "Aplicar filtro",
+        "dxDataGrid-filterRowResetOperationText": "Redefinir",
+        "dxDataGrid-sortingAscendingText": "Ordenação Crescente",
+        "dxDataGrid-sortingDescendingText": "Ordenação Decrescente",
+        "dxDataGrid-sortingClearText": "Limpar Ordenação",
+      },
+    });
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.v-application {
+  font-family: Arial, sans-serif !important;
+  height: 100% !important;
 }
 </style>
