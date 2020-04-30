@@ -5,4 +5,4 @@ const references = {
     }
 }
 
-export default references
+export default references;

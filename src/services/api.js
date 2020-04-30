@@ -10,15 +10,15 @@ if (webUrl.includes("localhost")) {
   env = "prod";
 }
 
-const getMethod = async (apiName, route, body) => {
-    axios.default.baseURL = references[apiName][env]
-    var response = await axios.get(route, body)
+const getMethod = async (api, route, body) => {
+    axios.default.baseURL = references[api][env]
+    var response = await axios.get(`${references[api][env]}/${route}`, body)
     return response
 }
 
-const postMethod = async (apiName, route, body) => {
-    axios.default.baseURL = references[apiName][env]
-    var response = await axios.post(route, body)
+const postMethod = async (api, route, body) => {
+    axios.default.baseURL = references[api][env]
+    var response = await axios.post(`${references[api][env]}/${route}`, body)
     return response
 }
 
