@@ -41,7 +41,6 @@
 
 <script>
 import api from "../../services/api";
-import axios from "axios";
 export default {
   data: () => ({
     cursos: {},

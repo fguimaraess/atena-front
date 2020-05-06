@@ -6,7 +6,6 @@
 
 <script>
 import { loadMessages } from "devextreme/localization";
-import HelloWorld from "./components/HelloWorld";
 
 export default {
   name: "App",
