@@ -1,41 +1,35 @@
 <template>
-  <div class="home">
-    <div class="home-background">
-    </div>
-    <div class="home-content">
-      Seja bem vindo à Atena!
-    </div>
-  </div>
+  <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+    <v-carousel-item v-for="(categoria, i) in categories" :key="i">
+      <v-sheet :color="colors[i]" height="100%">
+        <v-row class="fill-height" align="center" justify="center">
+          <div class="display-3">Aprenda {{ categoria.categoria }}</div>
+        </v-row>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 
 <script>
-export default {};
+import api from "../services/api";
+export default {
+  data() {
+    return {
+      colors: ["indigo", "indigo", "indigo", "indigo"],
+      categories: {}
+    };
+  },
+  created() {
+    this.getCursos();
+  },
+  methods: {
+    getCursos() {
+      api.get("api", "categorias").then(result => {
+        debugger;
+        this.categories = result.data;
+        console.log(this.categories);
+      });
+    }
+  }
+};
 </script>
-
-<style>
-.home-background {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  margin-top: -60px;
-}
-
-.home-background:before {
-  content: "";
-  background-image: url("") !important;
-  top: -12px;
-  right: 0;
-  bottom: 0;
-  left: -12px;
-  opacity: 0.5;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.home-content {
-  position: relative;
-  left: 12px
-}
-</style>

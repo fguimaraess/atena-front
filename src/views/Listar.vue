@@ -11,7 +11,7 @@ import api from "../../services/api";
 import {DxDataGrid, DxColumn} from "devextreme-vue/data-grid";
 export default {
   components: {
-    DxColumn,
+        DxColumn,
     DxDataGrid
   },
   created() {
