@@ -3,7 +3,22 @@
     <v-carousel-item v-for="(categoria, i) in categories" :key="i">
       <v-sheet :color="colors[i]" height="100%">
         <v-row class="fill-height" align="center" justify="center">
-          <div class="display-3">Aprenda {{ categoria.categoria }}</div>
+          <div class="display-3">
+  
+            <v-btn
+              text
+              x-large
+              :loading="loading3"
+              :disabled="loading3"
+              color="white"
+              class="ma-2 white--text"
+              @click="loader = 'loading3'"
+              :to="'/cursos/' + categoria.id"
+            >
+              <v-icon>fas fa-code</v-icon> Aprenda {{ categoria.categoria }} <v-icon>fas fa-code</v-icon>
+
+            </v-btn>
+          </div>
         </v-row>
       </v-sheet>
     </v-carousel-item>
@@ -29,7 +44,7 @@ export default {
         this.categories = result.data;
         console.log(this.categories);
       });
-    }
+    },
   }
 };
 </script>
