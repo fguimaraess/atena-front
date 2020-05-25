@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     getCursos() {
-      api.get("api", "cursos/categoria", ).then((result) => {
+      api.get("api", "curso").then((result) => {
         this.cursos = result.data;
       });
     },

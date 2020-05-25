@@ -40,9 +40,7 @@ export default {
   methods: {
     getCursos() {
       api.get("api", "categorias").then(result => {
-        debugger;
         this.categories = result.data;
-        console.log(this.categories);
       });
     },
   }
