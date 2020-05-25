@@ -1,7 +1,7 @@
 const references = {
     api : {
-        local: "http://atenaback.herokuapp.com/api",
-        prod: "http://atenaback.herokuapp.com/api",
+        local: "https://atenaback.herokuapp.com/api",
+        prod: "https://atenaback.herokuapp.com/api",
     }
 }
 

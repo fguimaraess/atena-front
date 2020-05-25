@@ -1,5 +1,4 @@
 const axios = require("axios");
-debugger
 import references from "./references";
 
 const webUrl = window.location.href;
@@ -12,7 +11,7 @@ if (webUrl.includes("localhost")) {
 }
 
 const getMethod = async (api, route, body) => {
-    debugger;
+
     axios.default.baseURL = references[api][env]
     var response = await axios.get(`${references[api][env]}/${route}`, body)
     return response
