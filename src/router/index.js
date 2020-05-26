@@ -14,6 +14,7 @@ const appAdminRoutes = [
 const appRoutes = [
   { path: "/", name: "Home", component: Home },
   { path: "/cursos", name: "Cursos", component: () => import("../views/Cursos/Lista.vue"), },
+  { path: "/cursos/categorias", name:"Categorias", component: () => import("../views/Cursos/Categories.vue") },
   { path: "/admin", name: "Cursos", component: () => import("../views/Admin/Home.vue"), children: appAdminRoutes },
 ];
 
