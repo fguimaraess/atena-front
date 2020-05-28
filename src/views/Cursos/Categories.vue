@@ -35,9 +35,9 @@
         </v-toolbar>
       </template>
 
-      <template v-slot:default="props">
+      <template class="teste" v-slot:default="props">
         <v-row >
-          <v-col v-for="item in props.items" :key="item.name" >
+          <v-col v-for="item in props.items" :key="item.name" md="3">
             <v-card class="teste" width="360px" max-height="90px">
               <v-img
                 class="rapaziada"
@@ -59,7 +59,8 @@
       </template>
 
       <template v-slot:footer>
-        <v-row class="mt-2" align="center" justify="center">
+        <div class="footer">
+        <v-row  align="center" >
           <span class="grey--text">Itens por pagina</span>
           <v-menu offset-y>
             <template v-slot:activator="{ on }">
@@ -89,6 +90,7 @@
             <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
         </v-row>
+        </div>
       </template>
     </v-data-iterator>
   </v-container>
@@ -117,16 +119,17 @@ export default {
     numberOfPages() {
       return Math.ceil(this.items.length / this.itemsPerPage);
     },
-    getCategories() {
-      api.get("api", "categorias").then(result => {
-        this.keys = result.data.map(categoria => categoria.categoria);
-        return this.keys.filter(key => key !== `nome`);
-      });
-    },
     getCursos() {
       api.get("api", "curso").then(result => {
         debugger;
         this.items = result.data;
+       this.getCategories()
+      });
+    },
+       getCategories() {
+      api.get("api", "categorias").then(result => {
+        this.keys = result.data.map(categoria => categoria.categoria);
+        return this.keys.filter(key => key !== `categoria`);
       });
     },
   },
@@ -140,14 +143,24 @@ export default {
     updateItemsPerPage(number) {
       this.itemsPerPage = number;
     }
-  }
+  },
+   getCategories() {
+      api.get("api", "categorias").then(result => {
+        this.keys = result.data.map(categoria => categoria.categoria);
+        return this.keys.filter(key => key !== `nome`);
+      });
+    },
 };
 </script>
 
 <style>
+.footer {
+  padding-top:450px;
+  padding-bottom: 100px;
+}
 .teste {
-  margin: 2px 1px 2px 2px;
-  }
+  padding-bottom: 32;
+}
 .rapaziada {
   height: 90px;
   width: 180px;

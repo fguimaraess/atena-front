@@ -8,12 +8,13 @@
             <v-btn
               text
               x-large
+              :itemprop="categoria.id"
               :loading="loading3"
               :disabled="loading3"
               color="white"
               class="ma-2 white--text"
               @click="loader = 'loading3'"
-              :to="'/cursos/' + categoria.id"
+              :to="'/cursos/categorias/'"
             >
               <v-icon>fas fa-code</v-icon> Aprenda {{ categoria.categoria }} <v-icon>fas fa-code</v-icon>
 
