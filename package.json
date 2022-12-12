@@ -13,7 +13,7 @@
     "core-js": "^3.6.4",
     "devextreme": "19.2.7",
     "devextreme-vue": "19.2.7",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-plyr": "^6.0.4",
